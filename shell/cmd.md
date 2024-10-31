@@ -37,4 +37,6 @@ sed 'Na\新内容' filename
 sed -i 's/old/new/g' filename
 ### -n：只输出经过 sed 修改的行。通常和 p（print） 命令一起使用，来打印出特定内容：
 sed -n 's/old/new/p' filename
+### 输出到新的文件  示例：将第 10-20 行中的每个“hello”替换为“world” 并输出到输出.txt
+sed '10,20s/hello/world/' 输入.txt > 输出.txt
 ```
