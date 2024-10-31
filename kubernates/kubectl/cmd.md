@@ -19,11 +19,16 @@
 - 监控资源状态 `kubectl get pods -w`  -w：watch
 ---
 - 标记不可调度 `kubectl cordon my-node`
+- 标记可调度 `kubectl uncordon my-node`
 ---
 - 回滚重启 `kubectl rollout undo deployment/my-deployment`
 - 重启 `kubectl rollout restart deployment/my-deployment`
 - 查看历史版本 `kubectl rollout history deployment/my-deployment`
 - 查看历史版本详细信息 `kubectl rollout history deployment/my-deployment --revision=2`
+---
+- 新增污点 `kubectl taint nodes <node-name> <key>=<value>:<effect>`
+- 删除污点 `kubectl taint nodes <node-name> <key>:<effect>-`
+- 污点 `kubectl taint nodes node1 key=value:NoSchedule-`
 
 ### 格式化输出 
 -o 后面可选格式：输出格式。可选值为： json、yaml、name、go-template、go-template-file、template、templatefile、jsonpath、jsonpath-as-json、jsonpath-file。
