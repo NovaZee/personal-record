@@ -1,0 +1,22 @@
+# 官网拷贝一份 NetworkPolicy的 资源描述头
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-port-from-namespace
+  namespace: default  # 限制谁 apply -f 到哪里
+spec: # 根据题干，限制的是pod，所以选择podSelector
+  podSelector: {} # {}代表全选
+  policyTypes: # 策略影响 流量方向 -> 入站: Ingress -> 出站: Egress
+  - Ingress	
+  ingress:  # 设置入站
+   # 选择一个当前ns 独一无二的标签 进行全量选择
+   # 若没有手动kubectl label ns echo lable-key=lable-value 进行添加
+   # kubectl get ns --show-labels
+  - from:
+    - namespaceSelector:
+        matchLabels: 
+          deault-key: default-value
+    ports:
+    - protocol: TCP
+      port: 9000 
+    # endPort: 32768  如果指定的是范围,可以使用endport来进行范围控制
