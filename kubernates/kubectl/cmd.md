@@ -18,6 +18,9 @@
 - 进入容器 `kubectl exec -ti my-pod -- /bin/bash`
 - 监控资源状态 `kubectl get pods -w`  -w：watch
 ---
+- 查看某类资源的标签 `kubectl get pods --show-labels`
+- 按标签筛选资源 ：使用 -l 或 --selector 按标签筛选资源。 `kubectl get pods -l env=production`
+---
 - 标记不可调度 `kubectl cordon my-node`
 - 标记可调度 `kubectl uncordon my-node`
 ---
