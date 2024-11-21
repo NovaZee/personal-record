@@ -6,6 +6,7 @@
  kubectl is a command line interface for running commands against Kubernetes clusters. kubectl looks for a file named config in the $HOME/.kube directory. You can specify other kubeconfig files by setting the KUBECONFIG environment variable or by setting the --kubeconfig flag.
 ### 常用命令
 - yaml查看 `kubectl get pods -o yaml`
+- 导出资源文件 `kubectl get pods my-pod -o yaml > my-pod.yaml`
 - 特定资源的 YAML 配置  `kubectl get pod my-pod -o yaml`
 - 通过标签选择器查找资源 `kubectl get pods -l app=nginx`
 - 创建资源 `kubectl create -f ./my-manifest.yaml`
